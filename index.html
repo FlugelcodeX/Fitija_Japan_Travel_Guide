@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FITIJA — First Time Japan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ============================= -->
+    <!-- BACKGROUND -->
+    <!-- ============================= -->
+
+    <div class="background-overlay"></div>
+
+    <div class="sun-decoration"></div>
+
+    <div class="floating-torii">⛩</div>
+    <div class="floating-sakura sakura-one">🌸</div>
+    <div class="floating-sakura sakura-two">🌸</div>
+    <div class="floating-sakura sakura-three">🌸</div>
+
+    <!-- ============================= -->
+    <!-- NAVIGATION -->
+    <!-- ============================= -->
+
+    <header class="navbar">
+      <div class="logo">
+        <span class="logo-jp">初</span>
+
+        <div>
+          <strong>FITIJA</strong>
+          <small>FIRST TIME JAPAN</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#know">Know Japan</a>
+        <a href="#japan">Find Your Japan</a>
+        <a href="#tips">Travel Tips</a>
+      </nav>
+
+      <button class="nav-button" onclick="scrollToJapan()">
+        Start Exploring
+      </button>
+    </header>
+
+    <!-- ============================= -->
+    <!-- HERO -->
+    <!-- ============================= -->
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="japanese-label">はじめての日本旅行</div>
+
+          <h1>
+            FIRST TIME
+            <span>JAPAN?</span>
+          </h1>
+
+          <p class="hero-description">
+            Your friendly guide to surviving, exploring, eating, and falling
+            completely in love with Japan.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="primary-button" onclick="scrollToJapan()">
+              Find Your Japan
+              <span>→</span>
+            </button>
+
+            <button class="secondary-button" onclick="scrollToKnow()">
+              Know Japan Before You Go
+            </button>
+          </div>
+
+          <div class="hero-note">
+            <span>☼</span>
+            Made for first-time travelers
+          </div>
+        </div>
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-image-container">
+          <div class="hero-frame">
+            <img
+              src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Japan Afternoon" />
+
+            <div class="hero-image-label">
+              <span>日本</span>
+              <small>Welcome to Japan</small>
+            </div>
+          </div>
+
+          <div class="hero-stamp">
+            初旅
+            <small>FIRST TRIP</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= -->
+      <!-- QUICK STATS -->
+      <!-- ============================= -->
+
+      <section class="quick-info">
+        <div class="quick-card">
+          <span>¥</span>
+          <div>
+            <strong>Currency</strong>
+            <p>Japanese Yen</p>
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <span>🚆</span>
+          <div>
+            <strong>Getting Around</strong>
+            <p>Trains are your best friend</p>
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <span>🍜</span>
+          <div>
+            <strong>Food</strong>
+            <p>Budget-friendly options everywhere</p>
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <span>🗾</span>
+          <div>
+            <strong>Best For</strong>
+            <p>Solo, couples & first-timers</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= -->
+      <!-- KNOW JAPAN -->
+      <!-- ============================= -->
+
+      <section id="know" class="section">
+        <div class="section-heading">
+          <span class="section-kicker">BEFORE YOU BOARD THE PLANE</span>
+
+          <h2>
+            Know Japan
+            <span>Before You Go</span>
+          </h2>
+
+          <p>
+            Japan is amazing, but your first trip becomes much easier when you
+            know the little things beforehand.
+          </p>
+        </div>
+
+        <div class="tip-grid">
+          <div class="tip-card">
+            <div class="tip-icon">🚆</div>
+
+            <h3>Trains Are Serious Business</h3>
+
+            <p>
+              Japanese trains are famous for being clean, efficient, and
+              extremely punctual.
+            </p>
+
+            <button onclick="openTip('train')">Read the Tip →</button>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">💴</div>
+
+            <h3>Bring Some Cash</h3>
+
+            <p>
+              Japan is highly modern, but cash is still useful, especially at
+              small restaurants and local shops.
+            </p>
+
+            <button onclick="openTip('cash')">Read the Tip →</button>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">👟</div>
+
+            <h3>You Will Walk. A Lot.</h3>
+
+            <p>
+              Japanese stations and neighborhoods can involve a surprising
+              amount of walking.
+            </p>
+
+            <button onclick="openTip('walking')">Read the Tip →</button>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">🗑️</div>
+
+            <h3>Where Are The Trash Cans?</h3>
+
+            <p>Public trash cans can be surprisingly difficult to find.</p>
+
+            <button onclick="openTip('trash')">Read the Tip →</button>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">🤫</div>
+
+            <h3>Quiet On The Train</h3>
+
+            <p>Public transportation tends to be calm and quiet.</p>
+
+            <button onclick="openTip('train-etiquette')">Read the Tip →</button>
+          </div>
+
+          <div class="tip-card">
+            <div class="tip-icon">♨️</div>
+
+            <h3>Onsen Has Rules</h3>
+
+            <p>
+              Japanese hot springs have etiquette that first-time visitors
+              should know.
+            </p>
+
+            <button onclick="openTip('onsen')">Read the Tip →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================= -->
+      <!-- FIND YOUR JAPAN -->
+      <!-- ============================= -->
+
+      <section id="japan" class="section japan-section">
+        <div class="section-heading">
+          <span class="section-kicker">WHERE SHOULD YOU GO?</span>
+
+          <h2>
+            Find Your
+            <span>Japan</span>
+          </h2>
+
+          <p>
+            Japan isn't just one experience. Pick the city that matches your
+            travel personality.
+          </p>
+        </div>
+
+        <div class="city-grid">
+          <!-- TOKYO -->
+
+          <article class="city-card">
+            <div class="city-image">
+              <img
+                src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=85"
+                alt="Tokyo" />
+
+              <span class="city-number">01</span>
+            </div>
+
+            <div class="city-content">
+              <span class="city-japanese">東京</span>
+
+              <h3>TOKYO</h3>
+
+              <p>
+                Neon streets, anime, shopping, skyscrapers, hidden ramen shops,
+                and an endless amount of things to discover.
+              </p>
+
+              <div class="city-tags">
+                <span>Anime</span>
+                <span>Shopping</span>
+                <span>Nightlife</span>
+              </div>
+
+              <button class="view-button" onclick="openCity('tokyo')">
+                VIEW
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- KYOTO -->
+
+          <article class="city-card">
+            <div class="city-image">
+              <img
+                src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=85"
+                alt="Kyoto" />
+
+              <span class="city-number">02</span>
+            </div>
+
+            <div class="city-content">
+              <span class="city-japanese">京都</span>
+
+              <h3>KYOTO</h3>
+
+              <p>
+                Ancient temples, bamboo forests, traditional streets, matcha,
+                shrines, and the Japan you probably imagined before your first
+                trip.
+              </p>
+
+              <div class="city-tags">
+                <span>Temples</span>
+                <span>Culture</span>
+                <span>Matcha</span>
+              </div>
+
+              <button class="view-button" onclick="openCity('kyoto')">
+                VIEW
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- OSAKA -->
+
+          <article class="city-card">
+            <div class="city-image">
+              <img
+                src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=1000&q=85"
+                alt="Osaka" />
+
+              <span class="city-number">03</span>
+            </div>
+
+            <div class="city-content">
+              <span class="city-japanese">大阪</span>
+
+              <h3>OSAKA</h3>
+
+              <p>
+                Come hungry. Osaka is famous for street food, friendly locals,
+                bright nightlife, and the chaotic energy of Dotonbori.
+              </p>
+
+              <div class="city-tags">
+                <span>Food</span>
+                <span>Fun</span>
+                <span>Nightlife</span>
+              </div>
+
+              <button class="view-button" onclick="openCity('osaka')">
+                VIEW
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- SAPPORO -->
+
+          <article class="city-card">
+            <div class="city-image">
+              <img
+                src="https://images.unsplash.com/photo-1645611539916-e9b328d3832c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Sapporo" />
+
+              <span class="city-number">04</span>
+            </div>
+
+            <div class="city-content">
+              <span class="city-japanese">札幌</span>
+
+              <h3>SAPPORO</h3>
+
+              <p>
+                Snow festivals, Hokkaido seafood, miso ramen, cool summers,
+                mountains, and a completely different side of Japan.
+              </p>
+
+              <div class="city-tags">
+                <span>Snow</span>
+                <span>Ramen</span>
+                <span>Nature</span>
+              </div>
+
+              <button class="view-button" onclick="openCity('sapporo')">
+                VIEW
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============================= -->
+      <!-- FIRST TIMER SURVIVAL TIPS -->
+      <!-- ============================= -->
+
+      <section id="tips" class="section tips-section">
+        <div class="section-heading">
+          <span class="section-kicker"> SMALL THINGS THAT HELP A LOT </span>
+
+          <h2>
+            First-Timer
+            <span>Survival Tips</span>
+          </h2>
+
+          <p>
+            Click any card to see what you should prepare, what to bring, and
+            what you should expect when you're actually in Japan.
+          </p>
+        </div>
+
+        <div class="survival-grid">
+          <!-- 01 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('ic-card')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1722192966983-763c33412758?q=80&w=1071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Travel card and wallet"
+                loading="lazy" />
+
+              <span>01</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">💳</div>
+
+              <h3>Get an IC Card</h3>
+
+              <p>
+                Make trains, buses, vending machines, and convenience-store
+                purchases easier.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 02 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('maps')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1706984524145-aa4e502d6f96?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Map and navigation"
+                loading="lazy" />
+
+              <span>02</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">🗺️</div>
+
+              <h3>Use Google Maps</h3>
+
+              <p>
+                Learn how to read train lines, platforms, transfers, exits, and
+                walking routes.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 03 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('convenience')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1753598738028-8b0f5d2d0876?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Convenience store shopping"
+                loading="lazy" />
+
+              <span>03</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">🏪</div>
+
+              <h3>Know Convenience Stores</h3>
+
+              <p>
+                7-Eleven, FamilyMart, and Lawson can save you when you need
+                food, drinks, cash, or basic supplies.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 04 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('packing')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1499419819507-77191b8ec46e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Travel suitcase"
+                loading="lazy" />
+
+              <span>04</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">🧳</div>
+
+              <h3>Don't Overpack</h3>
+
+              <p>
+                Leave room for souvenirs, snacks, clothes, anime merchandise,
+                and the things you absolutely did not plan to buy.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 05 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('power')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1681562951682-e7f8f556dbd0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Travel power adapter"
+                loading="lazy" />
+
+              <span>05</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">🔌</div>
+
+              <h3>Prepare Your Electronics</h3>
+
+              <p>
+                Bring the right charger, power bank, cables, and travel adapter
+                so your phone survives the day.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 06 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('wifi')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1683296990966-31b9210d07a3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Phone with internet connection"
+                loading="lazy" />
+
+              <span>06</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">📱</div>
+
+              <h3>Get Mobile Internet</h3>
+
+              <p>
+                Internet access makes navigation, translation, bookings, and
+                emergencies much easier.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 07 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('shoes')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1471991750293-5fc0e377b550?q=80&w=1596&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Comfortable walking shoes"
+                loading="lazy" />
+
+              <span>07</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">👟</div>
+
+              <h3>Wear Comfortable Shoes</h3>
+
+              <p>
+                Your feet are going to work overtime. Comfortable shoes can
+                completely change your trip.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 08 -->
+
+          <article
+            class="survival-card"
+            onclick="openSurvivalTip('trash')"
+            tabindex="0">
+            <div class="survival-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1591610413036-5aaaa8a72b21?q=80&w=1467&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Reusable travel bag"
+                loading="lazy" />
+
+              <span>08</span>
+            </div>
+
+            <div class="survival-card-content">
+              <div class="survival-icon">🗑️</div>
+
+              <h3>Carry a Small Trash Bag</h3>
+
+              <p>
+                Public trash cans aren't always easy to find, so carrying a
+                small bag is surprisingly useful.
+              </p>
+
+              <button>
+                VIEW FULL GUIDE
+                <span>→</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================= -->
+    <!-- CITY MODAL -->
+    <!-- ============================= -->
+
+    <div id="cityModal" class="modal">
+      <div class="modal-box">
+        <button class="close-modal" onclick="closeCity()">×</button>
+
+        <div id="cityModalContent"></div>
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- TIP MODAL -->
+    <!-- ============================= -->
+
+    <div id="tipModal" class="modal">
+      <div class="tip-modal-box">
+        <button class="close-modal" onclick="closeTip()">×</button>
+
+        <div id="tipModalContent"></div>
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- SURVIVAL TIP MODAL -->
+    <!-- ============================= -->
+
+    <div id="survivalModal" class="modal">
+      <div class="survival-modal-box">
+        <button class="close-modal" onclick="closeSurvivalTip()">×</button>
+
+        <div id="survivalModalContent"></div>
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- FOOTER -->
+    <!-- ============================= -->
+
+    <footer>
+      <div class="footer-logo">FITIJA</div>
+
+      <p>初めての日本旅行を、もっと楽しく。</p>
+
+      <small>FITIJA — First Time Japan</small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
