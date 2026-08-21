@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
 ========================================= */
 
 function initializePhotoAlbum() {
-  const albumPhoto = document.querySelector(".photo-album-frame img");
+  const albumPhoto = document.querySelector(".hero-frame img");
 
   if (!albumPhoto) return;
 
@@ -372,7 +372,7 @@ function initializePhotoAlbum() {
 ========================================= */
 
 function nextAlbumPhoto() {
-  const albumPhoto = document.querySelector(".photo-album-frame img");
+  const albumPhoto = document.querySelector(".hero-frame img");
 
   if (!albumPhoto) return;
 
@@ -421,7 +421,7 @@ function nextAlbumPhoto() {
 ========================================= */
 
 function createPhotoCounter() {
-  const albumFrame = document.querySelector(".photo-album-frame");
+  const albumFrame = document.querySelector(".hero-frame");
 
   if (!albumFrame) return;
 
@@ -494,13 +494,13 @@ function createPhotoCounter() {
       opacity: 0.55;
     }
 
-    .photo-album-frame img {
+    .hero-frame img {
       transition:
         opacity 0.35s ease,
         transform 0.45s ease !important;
     }
 
-    .photo-album-frame img:hover {
+    .hero-frame img:hover {
       transform: scale(1.015);
     }
 
@@ -667,7 +667,7 @@ function initializeShowcaseBackground() {
       Prevent the album image from disappearing
       behind the background.
     */
-    .photo-album-frame {
+    .hero-frame {
       position: relative;
       z-index: 4;
     }
@@ -1982,7 +1982,20 @@ document.addEventListener("keydown", function (event) {
         ========================================= */
 
         body.fitiija-night {
-          background: #000000 !important;
+          background-image:
+            linear-gradient(
+              135deg,
+              rgba(0, 0, 0, 0.88) 0%,
+              rgba(20, 0, 0, 0.82) 50%,
+              rgba(0, 0, 0, 0.9) 100%
+            ),
+            url("https://images.unsplash.com/photo-1525635569544-610f9540664a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") !important;
+
+          background-size: cover !important;
+          background-position: center !important;
+          background-attachment: fixed !important;
+          background-repeat: no-repeat !important;
+
           color: #e20000 !important;
 
           transition:
@@ -2002,7 +2015,7 @@ body.fitiija-night nav a:hover {
         ========================================= */
 
         body.fitiija-night .japan-showcase {
-          background-color: #5f0000 !important;
+          background-color: rgba(95, 0, 0, 0.72) !important;
           color: #e20000 !important;
 
           transition:
@@ -2057,7 +2070,7 @@ body.fitiija-night nav a:hover {
         ========================================= */
 
         body.fitiija-night section {
-          background: #020202 !important;
+          background: rgba(2, 2, 2, 0.8) !important;
           color: #ffffff !important;
 
           transition:

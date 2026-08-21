@@ -29,7 +29,20 @@ html {
 
 body {
   font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
-  background: linear-gradient(135deg, #fffaf2 0%, #fff2e5 50%, #fff8ed 100%);
+
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 250, 242, 0.9) 0%,
+      rgba(255, 242, 229, 0.86) 50%,
+      rgba(255, 248, 237, 0.92) 100%
+    ),
+    url("https://images.unsplash.com/photo-1525635569544-610f9540664a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 
   color: var(--black);
   overflow-x: hidden;
