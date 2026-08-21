@@ -4,10 +4,10 @@
 ========================================= */
 
 /* =========================================
-   HERO PHOTO ALBUM
+   JAPAN PHOTO ALBUM
 ========================================= */
 
-const heroAlbum = [
+const japanPhotoAlbum = [
   {
     image:
       "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -69,15 +69,15 @@ const heroAlbum = [
   },
 ];
 
-let currentHeroPhoto = 0;
+let currentPhotoIndex = 0;
 /* =========================================
-   SAKURA PETALS — HOME / HERO ONLY
+   SAKURA PETALS — HOME / SHOWCASE ONLY
 ========================================= */
 
 function initializeSakuraPetals() {
-  const hero = document.querySelector(".hero");
+  const showcase = document.querySelector(".japan-showcase");
 
-  if (!hero) return;
+  if (!showcase) return;
 
   /*
     Prevent duplicate initialization.
@@ -94,7 +94,7 @@ function initializeSakuraPetals() {
   container.id = "sakuraPetals";
   container.setAttribute("aria-hidden", "true");
 
-  hero.appendChild(container);
+  showcase.appendChild(container);
 
   /*
     Sakura petal styles.
@@ -107,7 +107,7 @@ function initializeSakuraPetals() {
     /*
       =========================================
       SAKURA PETALS
-      ONLY VISIBLE INSIDE THE HERO / HOME
+      ONLY VISIBLE INSIDE THE SHOWCASE / HOME
       =========================================
     */
 
@@ -301,158 +301,158 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeSakuraPetals();
 });
 /* =========================================
-   HERO ALBUM INITIALIZATION
+   PHOTO ALBUM INITIALIZATION
 ========================================= */
 
-function initializeHeroAlbum() {
-  const heroImage = document.querySelector(".hero-frame img");
+function initializePhotoAlbum() {
+  const albumPhoto = document.querySelector(".photo-album-frame img");
 
-  if (!heroImage) return;
+  if (!albumPhoto) return;
 
   /*
     Prevent duplicate initialization.
   */
-  if (heroImage.dataset.albumInitialized === "true") {
+  if (albumPhoto.dataset.albumInitialized === "true") {
     return;
   }
 
-  heroImage.dataset.albumInitialized = "true";
+  albumPhoto.dataset.albumInitialized = "true";
 
   /*
     Make the first image the requested background image.
   */
-  heroImage.src = heroAlbum[0].image;
-  heroImage.alt = heroAlbum[0].alt;
+  albumPhoto.src = japanPhotoAlbum[0].image;
+  albumPhoto.alt = japanPhotoAlbum[0].alt;
 
   /*
     Make the image clickable.
   */
-  heroImage.style.cursor = "pointer";
+  albumPhoto.style.cursor = "pointer";
 
   /*
     Accessibility.
   */
-  heroImage.setAttribute("role", "button");
-  heroImage.setAttribute("aria-label", "Click to view the next Japan photo");
-  heroImage.setAttribute("tabindex", "0");
+  albumPhoto.setAttribute("role", "button");
+  albumPhoto.setAttribute("aria-label", "Click to view the next Japan photo");
+  albumPhoto.setAttribute("tabindex", "0");
 
   /*
     Add album transition.
   */
-  heroImage.style.transition = "opacity 0.35s ease, transform 0.45s ease";
+  albumPhoto.style.transition = "opacity 0.35s ease, transform 0.45s ease";
 
   /*
     Click = next image.
   */
-  heroImage.addEventListener("click", nextHeroPhoto);
+  albumPhoto.addEventListener("click", nextAlbumPhoto);
 
   /*
     Keyboard support.
   */
-  heroImage.addEventListener("keydown", function (event) {
+  albumPhoto.addEventListener("keydown", function (event) {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      nextHeroPhoto();
+      nextAlbumPhoto();
     }
   });
 
   /*
     Add album indicator.
   */
-  createHeroAlbumIndicator();
+  createPhotoCounter();
 
   /*
-    Set the hero background.
+    Set the showcase background.
   */
-  initializeHeroBackground();
+  initializeShowcaseBackground();
 }
 
 /* =========================================
-   NEXT HERO PHOTO
+   NEXT ALBUM PHOTO
 ========================================= */
 
-function nextHeroPhoto() {
-  const heroImage = document.querySelector(".hero-frame img");
+function nextAlbumPhoto() {
+  const albumPhoto = document.querySelector(".photo-album-frame img");
 
-  if (!heroImage) return;
+  if (!albumPhoto) return;
 
   /*
     Fade image out.
   */
-  heroImage.style.opacity = "0";
-  heroImage.style.transform = "scale(1.025)";
+  albumPhoto.style.opacity = "0";
+  albumPhoto.style.transform = "scale(1.025)";
 
   setTimeout(() => {
     /*
       Move to next image.
     */
-    currentHeroPhoto++;
+    currentPhotoIndex++;
 
     /*
       Loop back after the 10th photo.
     */
-    if (currentHeroPhoto >= heroAlbum.length) {
-      currentHeroPhoto = 0;
+    if (currentPhotoIndex >= japanPhotoAlbum.length) {
+      currentPhotoIndex = 0;
     }
 
     /*
       Change image.
     */
-    heroImage.src = heroAlbum[currentHeroPhoto].image;
-    heroImage.alt = heroAlbum[currentHeroPhoto].alt;
+    albumPhoto.src = japanPhotoAlbum[currentPhotoIndex].image;
+    albumPhoto.alt = japanPhotoAlbum[currentPhotoIndex].alt;
 
     /*
       Update indicator.
     */
-    updateHeroAlbumIndicator();
+    updatePhotoCounter();
 
     /*
       Bring image back.
     */
     requestAnimationFrame(() => {
-      heroImage.style.opacity = "1";
-      heroImage.style.transform = "scale(1)";
+      albumPhoto.style.opacity = "1";
+      albumPhoto.style.transform = "scale(1)";
     });
   }, 180);
 }
 
 /* =========================================
-   HERO ALBUM INDICATOR
+   PHOTO COUNTER
 ========================================= */
 
-function createHeroAlbumIndicator() {
-  const heroFrame = document.querySelector(".hero-frame");
+function createPhotoCounter() {
+  const albumFrame = document.querySelector(".photo-album-frame");
 
-  if (!heroFrame) return;
+  if (!albumFrame) return;
 
   /*
     Don't create it twice.
   */
-  if (document.getElementById("heroAlbumIndicator")) {
+  if (document.getElementById("photoCounter")) {
     return;
   }
 
   const indicator = document.createElement("div");
 
-  indicator.id = "heroAlbumIndicator";
+  indicator.id = "photoCounter";
 
   indicator.innerHTML = `
-    <span class="hero-album-current">01</span>
-    <span class="hero-album-divider">/</span>
-    <span class="hero-album-total">10</span>
+    <span class="photo-counter-current">01</span>
+    <span class="photo-counter-divider">/</span>
+    <span class="photo-counter-total">10</span>
   `;
 
-  heroFrame.appendChild(indicator);
+  albumFrame.appendChild(indicator);
 
   /*
     Inject only the styles needed for the album.
   */
   const style = document.createElement("style");
 
-  style.id = "fitiijaHeroAlbumStyles";
+  style.id = "fitijaPhotoAlbumStyles";
 
   style.textContent = `
-    #heroAlbumIndicator {
+    #photoCounter {
       position: absolute;
       right: 22px;
       bottom: 20px;
@@ -482,37 +482,37 @@ function createHeroAlbumIndicator() {
         0 8px 25px rgba(181, 18, 27, 0.12);
     }
 
-    #heroAlbumIndicator .hero-album-current {
+    #photoCounter .photo-counter-current {
       font-size: 13px;
     }
 
-    #heroAlbumIndicator .hero-album-divider {
+    #photoCounter .photo-counter-divider {
       opacity: 0.45;
     }
 
-    #heroAlbumIndicator .hero-album-total {
+    #photoCounter .photo-counter-total {
       opacity: 0.55;
     }
 
-    .hero-frame img {
+    .photo-album-frame img {
       transition:
         opacity 0.35s ease,
         transform 0.45s ease !important;
     }
 
-    .hero-frame img:hover {
+    .photo-album-frame img:hover {
       transform: scale(1.015);
     }
 
     @media (max-width: 768px) {
-      #heroAlbumIndicator {
+      #photoCounter {
         right: 12px;
         bottom: 12px;
         padding: 7px 10px;
         font-size: 9px;
       }
 
-      #heroAlbumIndicator .hero-album-current {
+      #photoCounter .photo-counter-current {
         font-size: 11px;
       }
     }
@@ -522,61 +522,61 @@ function createHeroAlbumIndicator() {
 }
 
 /* =========================================
-   UPDATE HERO ALBUM INDICATOR
+   UPDATE PHOTO COUNTER
 ========================================= */
 
-function updateHeroAlbumIndicator() {
+function updatePhotoCounter() {
   const current = document.querySelector(
-    "#heroAlbumIndicator .hero-album-current",
+    "#photoCounter .photo-counter-current",
   );
 
   if (!current) return;
 
-  current.textContent = String(currentHeroPhoto + 1).padStart(2, "0");
+  current.textContent = String(currentPhotoIndex + 1).padStart(2, "0");
 }
 
 /* =========================================
-   HERO BACKGROUND
+   SHOWCASE BACKGROUND
 ========================================= */
 
-function initializeHeroBackground() {
-  const heroImageContainer = document.querySelector(".hero-image-container");
+function initializeShowcaseBackground() {
+  const albumContainer = document.querySelector(".photo-album-container");
 
-  if (!heroImageContainer) return;
+  if (!albumContainer) return;
 
   /*
     The image requested by the user.
   */
-  const heroBackground =
+  const showcaseBackgroundImage =
     "https://images.unsplash.com/photo-1574236170878-f66e35f83207?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   /*
-    Find the actual hero section.
+    Find the actual showcase section.
   */
-  const heroSection =
-    heroImageContainer.closest(".hero") ||
-    heroImageContainer.closest("section") ||
-    heroImageContainer.parentElement;
+  const showcaseWrapper =
+    albumContainer.closest(".japan-showcase") ||
+    albumContainer.closest("section") ||
+    albumContainer.parentElement;
 
-  if (!heroSection) return;
+  if (!showcaseWrapper) return;
 
   /*
     Prevent duplicate styles.
   */
-  if (document.getElementById("fitiijaHeroBackgroundStyles")) {
+  if (document.getElementById("fitijaShowcaseBackgroundStyles")) {
     return;
   }
 
   const style = document.createElement("style");
 
-  style.id = "fitiijaHeroBackgroundStyles";
+  style.id = "fitijaShowcaseBackgroundStyles";
 
   style.textContent = `
     /*
-      FITIJA HERO BACKGROUND
+      FITIJA SHOWCASE BACKGROUND
     */
 
-    .hero {
+    .japan-showcase {
       position: relative;
       overflow: hidden;
 
@@ -588,7 +588,7 @@ function initializeHeroBackground() {
           rgba(255, 250, 244, 0.58) 58%,
           #fffaf4 100%
         ),
-        url("${heroBackground}");
+        url("${showcaseBackgroundImage}");
 
       background-size: cover;
       background-position: center top;
@@ -600,7 +600,7 @@ function initializeHeroBackground() {
     /*
       Soft overlay to keep text readable.
     */
-    .hero::before {
+    .japan-showcase::before {
       content: "";
 
       position: absolute;
@@ -624,7 +624,7 @@ function initializeHeroBackground() {
       This makes the image naturally disappear
       into the existing FITIJA background.
     */
-    .hero::after {
+    .japan-showcase::after {
       content: "";
 
       position: absolute;
@@ -647,18 +647,18 @@ function initializeHeroBackground() {
     }
 
     /*
-      Keep hero content above the background.
+      Keep showcase content above the background.
     */
-    .hero > * {
+    .japan-showcase > * {
       position: relative;
       z-index: 2;
     }
 
     /*
-      The hero image remains a separate album
+      The showcase image remains a separate album
       above the background.
     */
-    .hero-image-container {
+    .photo-album-container {
       position: relative;
       z-index: 3;
     }
@@ -667,17 +667,17 @@ function initializeHeroBackground() {
       Prevent the album image from disappearing
       behind the background.
     */
-    .hero-frame {
+    .photo-album-frame {
       position: relative;
       z-index: 4;
     }
 
     @media (max-width: 768px) {
-      .hero {
+      .japan-showcase {
         background-position: center top;
       }
 
-      .hero::before {
+      .japan-showcase::before {
         background:
           linear-gradient(
             180deg,
@@ -693,11 +693,11 @@ function initializeHeroBackground() {
 }
 
 /* =========================================
-   INITIALIZE HERO
+   INITIALIZE SHOWCASE
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-  initializeHeroAlbum();
+  initializePhotoAlbum();
 });
 
 /* =========================================
@@ -1484,7 +1484,7 @@ function openCity(cityName) {
   const content = document.getElementById("cityModalContent");
 
   content.innerHTML = `
-    <div class="city-detail-hero">
+    <div class="city-detail-showcase">
 
       <img
         src="${city.image}"
@@ -1716,7 +1716,7 @@ function openTip(tipName) {
       </h2>
 
       <p style="
-        color: #ffffff;
+        color: #6f6660;
         line-height: 2;
         margin-top: 25px;
         font-size: 15px;
@@ -1772,7 +1772,7 @@ function openSurvivalTip(tipName) {
   const content = document.getElementById("survivalModalContent");
 
   content.innerHTML = `
-    <div class="survival-detail-hero">
+    <div class="survival-detail-showcase">
 
       <div class="survival-detail-image">
         <img
@@ -1998,10 +1998,10 @@ body.fitiija-night nav a:hover {
 }
 
         /* =========================================
-           HERO
+           SHOWCASE
         ========================================= */
 
-        body.fitiija-night .hero {
+        body.fitiija-night .japan-showcase {
           background-color: #5f0000 !important;
           color: #e20000 !important;
 
@@ -2009,7 +2009,7 @@ body.fitiija-night nav a:hover {
             background 0.6s ease;
         }
 
-        body.fitiija-night .hero::before {
+        body.fitiija-night .japan-showcase::before {
           background:
             linear-gradient(
               90deg,
@@ -2020,7 +2020,7 @@ body.fitiija-night nav a:hover {
             ) !important;
         }
 
-        body.fitiija-night .hero::after {
+        body.fitiija-night .japan-showcase::after {
           background:
             linear-gradient(
               to bottom,
@@ -2032,22 +2032,22 @@ body.fitiija-night nav a:hover {
 
 
         /* =========================================
-           HERO TEXT
+           SHOWCASE TEXT
         ========================================= */
 
-        body.fitiija-night .hero h1,
-        body.fitiija-night .hero h2,
-        body.fitiija-night .hero h3 {
+        body.fitiija-night .japan-showcase h1,
+        body.fitiija-night .japan-showcase h2,
+        body.fitiija-night .japan-showcase h3 {
           color: #000000 !important;
         }
 
-        body.fitiija-night .hero p {
+        body.fitiija-night .japan-showcase p {
           color: #faf9f9 !important;
         }
 
-        body.fitiija-night .hero .eyebrow,
-        body.fitiija-night .hero .hero-label,
-        body.fitiija-night .hero small {
+        body.fitiija-night .japan-showcase .eyebrow,
+        body.fitiija-night .japan-showcase .showcase-label,
+        body.fitiija-night .japan-showcase small {
           color: #f10000 !important;
         }
 
@@ -2335,6 +2335,9 @@ body.fitiija-night .survival-modal-box {
   background: #0a0a0a !important;
   border: 1px solid #b51f25 !important;
 }
+body.fitiija-night .tip-modal-box p {
+  color: #ffffff !important;
+}
 body.fitiija-night .city-tags span {
   background: #181818 !important;
   color: #ffffff !important;
@@ -2395,11 +2398,11 @@ body.fitiija-night .nav-button:active {
 
 
         /* =========================================
-           HERO BUTTONS
+           SHOWCASE BUTTONS
         ========================================= */
 
-        body.fitiija-night .hero button,
-        body.fitiija-night .hero .btn {
+        body.fitiija-night .japan-showcase button,
+        body.fitiija-night .japan-showcase .btn {
           background: #080808 !important;
 
           color: #ff0000 !important;
@@ -2408,8 +2411,8 @@ body.fitiija-night .nav-button:active {
             1px solid #b51f25 !important;
         }
 
-        body.fitiija-night .hero button:hover,
-        body.fitiija-night .hero .btn:hover {
+        body.fitiija-night .japan-showcase button:hover,
+        body.fitiija-night .japan-showcase .btn:hover {
           background: #b51f25 !important;
 
           color: #ffffff !important;
