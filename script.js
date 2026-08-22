@@ -2404,6 +2404,58 @@ body.fitiija-night .nav-button:active {
   border-color: #b51f25 !important;
 }
 
+/* =========================================
+   GENERIC BUTTON HOVER (NIGHT MODE)
+   The catch-all "body.fitiija-night button"
+   rule above left every button flat black
+   with no visible hover/click feedback.
+   This gives plain buttons a red hover state.
+========================================= */
+
+body.fitiija-night button:hover,
+body.fitiija-night button:active {
+  background: #b51f25 !important;
+  color: #ffffff !important;
+  border-color: #b51f25 !important;
+}
+
+/* =========================================
+   HERO BUTTONS (NIGHT MODE)
+   These were being caught by the generic
+   "body.fitiija-night button" rule above and
+   turned flat black instead of inverting.
+   Requested behavior: the button that is RED
+   in day mode should become WHITE in night
+   mode (not black), and hover/click should
+   swap the two rather than staying black.
+========================================= */
+
+body.fitiija-night .primary-button {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #b51f25 !important;
+}
+
+body.fitiija-night .primary-button:hover,
+body.fitiija-night .primary-button:active {
+  background: #b51f25 !important;
+  color: #ffffff !important;
+  border-color: #b51f25 !important;
+}
+
+body.fitiija-night .secondary-button {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #fb51f25 !important;
+}
+
+body.fitiija-night .secondary-button:hover,
+body.fitiija-night .secondary-button:active {
+  background: #b51f25 !important;
+  color: #ffffff !important;
+  border-color: #b51f25 !important;
+}
+
         /* =========================================
            BOX BUTTONS
         ========================================= */
@@ -2553,6 +2605,16 @@ body.fitiija-night .nav-button:active {
 
           box-shadow:
             0 0 30px rgba(255, 170, 60, 0.35);
+        }
+
+        /* =========================================
+           NIGHT MODE TOGGLE — WHITE BUTTON,
+           YELLOW SUN ICON
+        ========================================= */
+
+        body.fitiija-night #fitiijaNightToggle {
+          background: #ffffff !important;
+          color: #ffc400 !important;
         }
 
 
