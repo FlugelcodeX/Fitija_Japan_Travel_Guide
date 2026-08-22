@@ -2133,6 +2133,34 @@ body.fitiija-night .survival-warning p {
   color: #cccccc !important;
 }
 
+/* =========================================
+   CITY DETAIL SHOWCASE (TOP WHITE PANEL)
+   Same layout as .survival-detail-intro,
+   but this one was missed originally —
+   it's what left the modal top white.
+========================================= */
+
+body.fitiija-night .city-detail-showcase {
+  background: #0a0a0a !important;
+}
+
+body.fitiija-night .city-detail-title {
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+}
+
+body.fitiija-night .city-detail-title small {
+  color: #e53935 !important;
+}
+
+body.fitiija-night .city-detail-title h2 {
+  color: #e53935 !important;
+}
+
+body.fitiija-night .city-detail-title p {
+  color: #cccccc !important;
+}
+
         /* =========================================
            BLACK CONTENT BOXES
            
