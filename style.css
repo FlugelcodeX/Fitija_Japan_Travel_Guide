@@ -117,12 +117,6 @@ body {
 
   animation: floatSakura 8s ease-in-out infinite;
 }
-body.fitiija-night [class*="card"],
-body.fitiija-night [class*="Card"] {
-  background: #080808 !important;
-  color: #ffffff !important;
-  border-color: #a71919 !important;
-}
 .sakura-one {
   top: 25%;
   left: 5%;
@@ -1807,4 +1801,66 @@ footer small {
   .survival-info-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================================
+   NIGHT MODE FIX
+   The hero's fixed background photo was
+   bleeding through every section as you
+   scrolled, and several wrapper elements
+   never got dark styling. This block kills
+   the fixed photo entirely in night mode
+   and forces every wrapper to solid black.
+========================================= */
+
+body.fitiija-night {
+  background-image: none !important;
+  background-color: #000000 !important;
+  background-attachment: scroll !important;
+}
+
+/* Day-mode decorations are tuned for the cream background — hide them at night */
+body.fitiija-night .sun-decoration,
+body.fitiija-night .background-overlay,
+body.fitiija-night .floating-torii,
+body.fitiija-night .floating-sakura {
+  display: none !important;
+}
+
+/* Wrappers that the original night-mode rules never covered */
+body.fitiija-night main,
+body.fitiija-night .hero,
+body.fitiija-night .hero-content,
+body.fitiija-night .quick-info,
+body.fitiija-night .section,
+body.fitiija-night .section-heading,
+body.fitiija-night .japan-section,
+body.fitiija-night .tips-section,
+body.fitiija-night .explore-buttons,
+body.fitiija-night .city-grid,
+body.fitiija-night .tip-grid,
+body.fitiija-night .survival-grid,
+body.fitiija-night .city-detail-body,
+body.fitiija-night .detail-area,
+body.fitiija-night .detail-grid {
+  background: #000000 !important;
+}
+
+body.fitiija-night .quick-card {
+  border-right-color: #a71919 !important;
+}
+
+body.fitiija-night .explore-button {
+  background: #080808 !important;
+  color: #ffffff !important;
+  border-color: #a71919 !important;
+}
+
+body.fitiija-night .explore-button:hover,
+body.fitiija-night .explore-button.active {
+  background: #b51f25 !important;
+}
+
+body.fitiija-night .city-introduction {
+  color: #cccccc !important;
 }
